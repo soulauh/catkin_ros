@@ -64,6 +64,7 @@ src/ros_mono.cc
 )
 
 target_link_libraries(Mono
+/usr/lib/x86_64-linux-gnu/libtiff.so.5
 ${LIBS}
 )
 
@@ -75,6 +76,7 @@ src/AR/ViewerAR.cc
 )
 
 target_link_libraries(MonoAR
+/usr/lib/x86_64-linux-gnu/libtiff.so.5
 ${LIBS}
 )
 
@@ -84,6 +86,7 @@ src/ros_stereo.cc
 )
 
 target_link_libraries(Stereo
+/usr/lib/x86_64-linux-gnu/libtiff.so.5
 ${LIBS}
 )
 
@@ -93,6 +96,7 @@ src/ros_rgbd.cc
 )
 
 target_link_libraries(RGBD
+/usr/lib/x86_64-linux-gnu/libtiff.so.5
 ${LIBS}
 )
 
