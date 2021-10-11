@@ -122,6 +122,11 @@ public:
     std::vector<MapPoint*> GetTrackedMapPoints();
     std::vector<cv::KeyPoint> GetTrackedKeyPointsUn();
 
+    void SaveMap(const string &filename); 
+
+    void LoadMap(const string &filename);
+
+
 private:
 
     // Input sensor
@@ -174,6 +179,9 @@ private:
     std::vector<MapPoint*> mTrackedMapPoints;
     std::vector<cv::KeyPoint> mTrackedKeyPointsUn;
     std::mutex mMutexState;
+
+    std::string mySettingFile;
+
 };
 
 }// namespace ORB_SLAM

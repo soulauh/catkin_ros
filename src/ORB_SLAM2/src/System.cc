@@ -111,6 +111,9 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
 
     mpLoopCloser->SetTracker(mpTracker);
     mpLoopCloser->SetLocalMapper(mpLocalMapper);
+
+    mySettingFile = strSettingsFile;
+
 }
 
 cv::Mat System::TrackStereo(const cv::Mat &imLeft, const cv::Mat &imRight, const double &timestamp)
@@ -488,5 +491,21 @@ vector<cv::KeyPoint> System::GetTrackedKeyPointsUn()
     unique_lock<mutex> lock(mMutexState);
     return mTrackedKeyPointsUn;
 }
+
+//地图保存
+void System::SaveMap(const string &filename)
+{
+    mpMap->Save(filename);
+}
+
+//地图加载
+void System::LoadMap(const string &filename)
+{
+     SystemSetting* mySystemSetting = new SystemSetting(mpVocabulary);
+     
+     mySystemSetting->LoadSystemSetting(mySettingFile);
+     mpMap->Load(filename,mySystemSetting);
+}
+
 
 } //namespace ORB_SLAM
